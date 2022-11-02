@@ -1,7 +1,7 @@
 name: format and lint
 on: pull_request
 jobs:
-  install_and_build:
+  format_and_lint:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
