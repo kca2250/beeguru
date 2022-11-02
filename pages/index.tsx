@@ -1,7 +1,9 @@
+import { Header } from "../components/layouts/Header";
+
 export default function Home() {
   return (
     <>
-      <p>this is beeguru</p>
+      <Header />
     </>
   );
 }
