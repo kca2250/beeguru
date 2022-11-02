@@ -6,5 +6,5 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
-      - name: yarn install and build
+      - name: npm install and build
         run: npm install && npm run build
