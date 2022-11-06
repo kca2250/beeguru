@@ -1,8 +1,8 @@
 import { NextPage } from "next";
 import Link from "next/link";
-import { Footer } from "../../components/layouts/Footer";
-import { Header } from "../../components/layouts/Header";
-import { client } from "../../libs/client";
+import { Footer } from "../components/layouts/Footer";
+import { Header } from "../components/layouts/Header";
+import { client } from "../libs/client";
 
 const Home: NextPage = ({ blogs }: any) => {
   return (
