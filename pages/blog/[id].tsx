@@ -1,13 +1,6 @@
-import { Footer } from "../components/layouts/Footer";
-import { Header } from "../components/layouts/Header";
-import { client } from "../libs/client";
-
-type Blog = {
-  title: string;
-  publishedAt: string;
-  body: string;
-  content: string;
-};
+import { Footer } from "../../components/layouts/Footer";
+import { Header } from "../../components/layouts/Header";
+import { client } from "../../libs/client";
 
 const BlogId = (data: {
   blog: { title: string; publishedAt: string; content: string };

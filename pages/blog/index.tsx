@@ -1,8 +1,8 @@
 import { NextPage } from "next";
 import Link from "next/link";
-import { Footer } from "../components/layouts/Footer";
-import { Header } from "../components/layouts/Header";
-import { client } from "../libs/client";
+import { Footer } from "../../components/layouts/Footer";
+import { Header } from "../../components/layouts/Header";
+import { client } from "../../libs/client";
 
 const Home: NextPage = ({ blogs }: any) => {
   return (
@@ -12,7 +12,7 @@ const Home: NextPage = ({ blogs }: any) => {
         <ul>
           {blogs.map((blog: { id: string; title: string; content: string }) => (
             <li key={blog.id}>
-              <Link href={`/${blog.id}`} passHref>
+              <Link href={`/blog/${blog.id}`} passHref>
                 {blog.title}
               </Link>
               <span dangerouslySetInnerHTML={{ __html: `${blog.content}` }} />
