@@ -12,7 +12,7 @@ const Home: NextPage = ({ blogs }: any) => {
         <ul>
           {blogs.map((blog: { id: string; title: string; content: string }) => (
             <li key={blog.id}>
-              <Link href={`/${blog.id}`} passHref>
+              <Link href={`/blog/${blog.id}`} passHref>
                 {blog.title}
               </Link>
               <span dangerouslySetInnerHTML={{ __html: `${blog.content}` }} />
