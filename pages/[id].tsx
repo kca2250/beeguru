@@ -12,7 +12,6 @@ type Blog = {
 const BlogId = (data: {
   blog: { title: string; publishedAt: string; content: string };
 }) => {
-  console.log(data.blog.title);
   return (
     <>
       <Header />

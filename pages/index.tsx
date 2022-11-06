@@ -5,7 +5,6 @@ import { Header } from "../components/layouts/Header";
 import { client } from "../libs/client";
 
 const Home: NextPage = ({ blogs }: any) => {
-  console.log(blogs);
   return (
     <>
       <Header />
