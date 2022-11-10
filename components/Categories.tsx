@@ -9,15 +9,20 @@ export const Categories: React.FC<{ categories: Categories }> = ({
   categories,
 }) => {
   return (
-    <div className="bg-gray-100 px-4 py-6 flex flex-col">
+    <div className=" p-4 flex flex-col rounded-lg">
       <h3 className="font-extrabold">CATEGORIES</h3>
-      {categories.map(
-        (category: { name: string; id: string }, index: number) => (
-          <Link key={`category-${index}`} href={`/category/${category.id}`}>
-            <small className="py-[2px]">#{category.name}</small>
-          </Link>
-        )
+      {categories.length === 0 && (
+        <small className="py-[2px]">カテゴリーが存在しません</small>
       )}
+      <div className="flex items-center gap-2">
+        {categories.map(
+          (category: { name: string; id: string }, index: number) => (
+            <Link key={`category-${index}`} href={`/category/${category.id}`}>
+              <p className="py-[2px] underline">#{category.name}</p>
+            </Link>
+          )
+        )}
+      </div>
     </div>
   );
 };
