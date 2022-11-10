@@ -3,7 +3,7 @@ import Profile from "../assets/about.jpg";
 
 export const About = () => {
   return (
-    <div className="bg-slate-300 p-4 my-4">
+    <div className="bg-slate-300 p-4 my-4 rounded-lg">
       <div className="flex gap-5 items-start">
         <Image
           className="rounded-lg"
