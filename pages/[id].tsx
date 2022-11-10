@@ -3,19 +3,17 @@ import { Categories } from "../components/Categories";
 import { Footer } from "../components/layouts/Footer";
 import { Header } from "../components/layouts/Header";
 import { client } from "../libs/client";
+import { formatDate } from "../libs/formatDate";
 
 const BlogId = (data: {
   blog: {
     title: string;
-    updatedAt: string;
+    publishedAt: string;
     content: string;
     category: { name: string };
   };
 }) => {
-  const year = new Date(data.blog.updatedAt).getFullYear();
-  const month = new Date(data.blog.updatedAt).getMonth();
-  const day = new Date(data.blog.updatedAt).getDay();
-
+  const publishAt = formatDate(data.blog.publishedAt);
   return (
     <div
       className="mx-auto my-auto max-w-screen-md h-screen"
@@ -25,7 +23,9 @@ const BlogId = (data: {
       <main className="p-4 mx-auto my-5 max-w-screen-md ">
         <h1 className="pb-4">{data.blog.title}</h1>
         <div className="flex items-center gap-3 pb-3 mb-4 border-b">
-          <small className="bg-slate-600 text-white px-1 rounded">{`${year}年${month}月${day}日`}</small>
+          <small className="bg-slate-600 text-white px-1 rounded">
+            {publishAt}
+          </small>
           <small className="underline">#{data.blog.category.name}</small>
         </div>
         <article

@@ -6,6 +6,7 @@ import { Categories } from "../components/Categories";
 import { Footer } from "../components/layouts/Footer";
 import { Header } from "../components/layouts/Header";
 import { client } from "../libs/client";
+import { formatDate } from "../libs/formatDate";
 
 const Home: NextPage = ({ blogs, categories }: any) => {
   return (
@@ -14,18 +15,17 @@ const Home: NextPage = ({ blogs, categories }: any) => {
       style={{ display: "grid", gridTemplateRows: "auto 1fr auto" }}
     >
       <Header />
-
       <main className="my-3 px-4">
         <ul>
           {blogs.map((blog: any) => {
-            const year = new Date(blog.publishedAt).getFullYear();
-            const month = new Date(blog.publishedAt).getMonth();
-            const day = new Date(blog.publishedAt).getDay();
+            const publishedAt = formatDate(blog.publishedAt);
             return (
-              <li className="py-3" key={blog.id}>
+              <li className="pb-3" key={blog.id}>
                 <Link href={`/${blog.id}`} passHref>
                   <div className="flex items-center gap-3">
-                    <small className="bg-slate-600 text-white px-1 rounded">{`${year}年${month}月${day}日`}</small>
+                    <small className="bg-slate-600 text-white px-1 rounded">
+                      {publishedAt}
+                    </small>
                     <small className="text-slate-600">
                       #{blog.category.name}
                     </small>
@@ -51,7 +51,10 @@ const Home: NextPage = ({ blogs, categories }: any) => {
 
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async () => {
-  const data = await client.get({ endpoint: "blogs" });
+  const data = await client.get({
+    endpoint: "blogs",
+    queries: { orders: "-publishedAt" },
+  });
   const category = await client.get({ endpoint: "categories" });
 
   console.log(category);
