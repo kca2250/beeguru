@@ -20,7 +20,7 @@ const BlogId = (data: {
       style={{ display: "grid", gridTemplateRows: "auto 1fr auto" }}
     >
       <Header />
-      <main className="p-4 mx-auto my-5 max-w-screen-md ">
+      <main className="p-4 my-5 max-w-screen-md ">
         <h1 className="pb-4">{data.blog.title}</h1>
         <div className="flex items-center gap-3 pb-3 mb-4 border-b">
           <small className="bg-slate-600 text-white px-1 rounded">
