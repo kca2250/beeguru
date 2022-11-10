@@ -57,7 +57,6 @@ export const getStaticProps = async () => {
   });
   const category = await client.get({ endpoint: "categories" });
 
-  console.log(category);
   return {
     props: {
       blogs: data.contents,
