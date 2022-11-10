@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import Link from "next/link";
 import { FaGithub, FaTwitter } from "react-icons/fa";
+import { About } from "../components/About";
 import { Categories } from "../components/Categories";
 import { Footer } from "../components/layouts/Footer";
 import { Header } from "../components/layouts/Header";
@@ -16,7 +17,7 @@ const Home: NextPage = ({ blogs, categories }: any) => {
     >
       <Header />
 
-      <main className="my-4">
+      <main className="my-4 px-4">
         <ul>
           {blogs.map((blog: any) => {
             const year = new Date(blog.publishedAt).getFullYear();
@@ -43,6 +44,7 @@ const Home: NextPage = ({ blogs, categories }: any) => {
 
       <div>
         <Categories categories={categories} />
+        <About />
         <Footer />
       </div>
     </div>
