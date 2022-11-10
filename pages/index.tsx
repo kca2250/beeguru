@@ -15,7 +15,7 @@ const Home: NextPage = ({ blogs, categories }: any) => {
     >
       <Header />
 
-      <main className="my-4 px-4">
+      <main className="my-3 px-4">
         <ul>
           {blogs.map((blog: any) => {
             const year = new Date(blog.publishedAt).getFullYear();
@@ -30,9 +30,9 @@ const Home: NextPage = ({ blogs, categories }: any) => {
                       #{blog.category.name}
                     </small>
                   </div>
-                  <h2 className="py-1 text-cyan-700 hover:text-cyan-500  hover:decoration-cyan-500 hover:underline">
+                  <p className="py-1 text-cyan-700 hover:text-cyan-500  hover:decoration-cyan-500 hover:underline">
                     {blog.title}
-                  </h2>
+                  </p>
                 </Link>
               </li>
             );

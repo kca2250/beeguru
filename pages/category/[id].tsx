@@ -19,19 +19,19 @@ const Category: NextPage = ({ blogs, category, categories }: any) => {
       style={{ display: "grid", gridTemplateRows: "auto 1fr auto" }}
     >
       <Header />
-      <main className="p-4 my-5 max-w-screen-md ">
-        <h2>
+      <main className="p-4 my-3 max-w-screen-md ">
+        <p>
           <span className="text-lg font-semibold pr-2">
             #{category[0].name}
           </span>
           の記事一覧
-        </h2>
+        </p>
         {blogs.length === 0 && <p className="mt-5">記事が存在しません。</p>}
         <ul>
           {blogs.map((blog: any) => {
-            const year = new Date(blog.publishedAt).getFullYear();
-            const month = new Date(blog.publishedAt).getMonth();
-            const day = new Date(blog.publishedAt).getDay();
+            const year = new Date(blog.updatedAt).getFullYear();
+            const month = new Date(blog.updatedAt).getMonth();
+            const day = new Date(blog.updatedAt).getDay();
             return (
               <li className="py-3" key={blog.id}>
                 <Link href={`/${blog.id}`} passHref>
