@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { FaGithub, FaTwitter } from "react-icons/fa";
 
 export function Header() {
   return (
