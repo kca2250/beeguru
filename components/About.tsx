@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { FaGithub } from "react-icons/fa";
 import Profile from "../assets/about.jpg";
 
 export const About = () => {

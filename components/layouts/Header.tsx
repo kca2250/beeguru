@@ -8,16 +8,8 @@ export function Header() {
         <Link href={"/"}>
           <h1 className="font-bold text-xl">beeguru.dev</h1>
         </Link>
-        <div className="flex items-center gap-2">
-          <a href="https://twitter.com/kca2250">
-            <FaTwitter className="text-[#00acee]" size="1.4em" />
-          </a>
-          <a href="https://github.com/kca2250">
-            <FaGithub size="1.3em" />
-          </a>
-        </div>
       </div>
-      <small>某金融系企業のフロントエンドエンジニアの備忘録</small>
+      <small>某フロントエンドエンジニアの備忘録</small>
     </header>
   );
 }
