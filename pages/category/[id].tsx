@@ -5,6 +5,7 @@ import { Categories } from "../../components/Categories";
 import { Footer } from "../../components/layouts/Footer";
 import { Header } from "../../components/layouts/Header";
 import { client } from "../../libs/client";
+import { formatDate } from "../../libs/formatDate";
 
 interface MyNextPageContext extends NextPageContext {
   params: {
@@ -19,28 +20,26 @@ const Category: NextPage = ({ blogs, category, categories }: any) => {
       style={{ display: "grid", gridTemplateRows: "auto 1fr auto" }}
     >
       <Header />
-      <main className="p-4 my-5 max-w-screen-md ">
-        <h2>
+      <main className="p-4 my-3 max-w-screen-md ">
+        <p className="pb-4">
           <span className="text-lg font-semibold pr-2">
             #{category[0].name}
           </span>
           の記事一覧
-        </h2>
+        </p>
         {blogs.length === 0 && <p className="mt-5">記事が存在しません。</p>}
         <ul>
           {blogs.map((blog: any) => {
-            const year = new Date(blog.publishedAt).getFullYear();
-            const month = new Date(blog.publishedAt).getMonth();
-            const day = new Date(blog.publishedAt).getDay();
+            const publishAt = formatDate(blog.publishAt);
             return (
-              <li className="py-3" key={blog.id}>
+              <li className="pb-3" key={blog.id}>
                 <Link href={`/${blog.id}`} passHref>
-                  <div className="flex items-center gap-3">
-                    <small className="bg-slate-600 text-white px-1 rounded">{`${year}年${month}月${day}日`}</small>
-                  </div>
-                  <h2 className="py-1 text-cyan-700 hover:text-cyan-500  hover:decoration-cyan-500 hover:underline">
+                  <small className="bg-slate-600 text-white px-1 rounded">
+                    {publishAt}
+                  </small>
+                  <p className="text-cyan-700 hover:text-cyan-500  hover:decoration-cyan-500 hover:underline">
                     {blog.title}
-                  </h2>
+                  </p>
                 </Link>
               </li>
             );
@@ -69,7 +68,7 @@ export const getStaticProps = async (ctx: MyNextPageContext) => {
   const id = ctx.params.id;
   const blog = await client.get({
     endpoint: "blogs",
-    queries: { filters: `category[equals]${id}` },
+    queries: { filters: `category[equals]${id}`, orders: "-publishedAt" },
   });
   const category = await client.get({
     endpoint: "categories",
