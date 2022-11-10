@@ -8,8 +8,6 @@ import { Header } from "../components/layouts/Header";
 import { client } from "../libs/client";
 
 const Home: NextPage = ({ blogs, categories }: any) => {
-  console.log(blogs);
-
   return (
     <div
       className="mx-auto my-auto max-w-screen-md h-screen"
@@ -43,8 +41,8 @@ const Home: NextPage = ({ blogs, categories }: any) => {
       </main>
 
       <div>
-        <Categories categories={categories} />
         <About />
+        <Categories categories={categories} />
         <Footer />
       </div>
     </div>
