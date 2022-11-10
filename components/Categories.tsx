@@ -12,7 +12,7 @@ export const Categories: React.FC<{ categories: Categories }> = ({
     <div className=" p-4 flex flex-col rounded-lg">
       <h3 className="font-extrabold">CATEGORIES</h3>
       {categories.length === 0 && (
-        <small className="py-[2px]">カテゴリーが存在しません</small>
+        <small className="py-[2px]">カテゴリーが見つかりません</small>
       )}
       <div className="flex items-center gap-2">
         {categories.map(

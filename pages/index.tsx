@@ -17,6 +17,7 @@ const Home: NextPage = ({ blogs, categories }: any) => {
       <Header />
       <main className="my-3 px-4">
         <ul>
+          {blogs.length === 0 && <p>記事が見つかりません</p>}
           {blogs.map((blog: any) => {
             const publishedAt = formatDate(blog.publishedAt);
             return (

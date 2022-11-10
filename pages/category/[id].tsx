@@ -27,7 +27,7 @@ const Category: NextPage = ({ blogs, category, categories }: any) => {
           </span>
           の記事一覧
         </p>
-        {blogs.length === 0 && <p className="mt-5">記事が存在しません。</p>}
+        {blogs.length === 0 && <p className="mt-5">記事が見つかりません</p>}
         <ul>
           {blogs.map((blog: any) => {
             const publishAt = formatDate(blog.publishAt);
