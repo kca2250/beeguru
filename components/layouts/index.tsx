@@ -15,7 +15,7 @@ export const Layouts: React.FC<{
       style={{ display: "grid", gridTemplateRows: "auto 1fr auto" }}
     >
       <Header />
-      <main className="px-4 my-3">{children}</main>
+      <main className="px-3 my-3">{children}</main>
       <div>
         <About />
         <Categories categories={categories} />
