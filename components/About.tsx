@@ -3,7 +3,7 @@ import Profile from "../assets/about.jpg";
 
 export const About = () => {
   return (
-    <div className="bg-slate-300 p-4 my-4 rounded-lg">
+    <div className="bg-slate-300 p-3 m-2 rounded-lg">
       <div className="flex gap-5 items-start">
         <Image
           className="rounded-lg"
@@ -13,7 +13,7 @@ export const About = () => {
           alt="about-me-img"
         />
         <div>
-          <h4 className="text-neutral-800 font-semibold">かと</h4>
+          <h4 className="text-neutral-800 font-semibold">かと @kca2250</h4>
           <small>javascript / typescript / React / Next.js</small>
         </div>
       </div>
