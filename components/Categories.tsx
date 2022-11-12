@@ -1,13 +1,9 @@
 import Link from "next/link";
+import { Category } from "../models/category";
 
-type Categories = {
-  name: string;
-  id: string;
-}[];
-
-export const Categories: React.FC<{ categories: Categories }> = ({
-  categories,
-}) => {
+export const Categories: React.FC<{
+  categories: Pick<Category, "name" | "id">[];
+}> = ({ categories }) => {
   return (
     <div className=" p-4 flex flex-col rounded-lg">
       <h3 className="font-extrabold">CATEGORIES</h3>

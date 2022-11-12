@@ -7,8 +7,13 @@ import { Footer } from "../components/layouts/Footer";
 import { Header } from "../components/layouts/Header";
 import { client } from "../libs/client";
 import { formatDate } from "../libs/formatDate";
+import { Blog } from "../models/blog";
+import { Category } from "../models/category";
 
-const Home: NextPage = ({ blogs, categories }: any) => {
+const Home: NextPage<{
+  blogs: Pick<Blog, "title" | "publishedAt" | "id" | "category">[];
+  categories: Category[];
+}> = ({ blogs, categories }) => {
   return (
     <div
       className="mx-auto my-auto max-w-screen-md h-screen"
@@ -18,7 +23,7 @@ const Home: NextPage = ({ blogs, categories }: any) => {
       <main className="my-3 px-4">
         <ul>
           {blogs.length === 0 && <p>記事が見つかりません</p>}
-          {blogs.map((blog: any) => {
+          {blogs.map((blog) => {
             const publishedAt = formatDate(blog.publishedAt);
             return (
               <li className="pb-3" key={blog.id}>
