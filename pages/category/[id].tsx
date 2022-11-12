@@ -1,4 +1,3 @@
-import { NextPage, NextPageContext } from "next";
 import Link from "next/link";
 import { About } from "../../components/About";
 import { Categories } from "../../components/Categories";
@@ -6,14 +5,15 @@ import { Footer } from "../../components/layouts/Footer";
 import { Header } from "../../components/layouts/Header";
 import { client } from "../../libs/client";
 import { formatDate } from "../../libs/formatDate";
+import { Blog } from "../../models/blog";
+import { Category } from "../../models/category";
+import { ParamsNextPageContext } from "../../models/nextPageContext";
 
-interface MyNextPageContext extends NextPageContext {
-  params: {
-    id: string;
-  };
-}
-
-const Category: NextPage = ({ blogs, category, categories }: any) => {
+const Category: React.FC<{
+  blogs: Pick<Blog, "publishedAt" | "id" | "title">[];
+  category: Pick<Category, "name">[];
+  categories: Category[];
+}> = ({ blogs, category, categories }) => {
   return (
     <div
       className="mx-auto my-auto max-w-screen-md h-screen"
@@ -29,8 +29,8 @@ const Category: NextPage = ({ blogs, category, categories }: any) => {
         </p>
         {blogs.length === 0 && <p className="mt-5">記事が見つかりません</p>}
         <ul>
-          {blogs.map((blog: any) => {
-            const publishAt = formatDate(blog.publishAt);
+          {blogs.map((blog) => {
+            const publishAt = formatDate(blog.publishedAt);
             return (
               <li className="pb-3" key={blog.id}>
                 <Link href={`/${blog.id}`} passHref>
@@ -64,7 +64,7 @@ export const getStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps = async (ctx: MyNextPageContext) => {
+export const getStaticProps = async (ctx: ParamsNextPageContext) => {
   const id = ctx.params.id;
   const blog = await client.get({
     endpoint: "blogs",
