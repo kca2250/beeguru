@@ -33,3 +33,7 @@ blockquote {
 p {
   line-height: 2.2;
 }
+
+li::before {
+  content: "≫";
+}
