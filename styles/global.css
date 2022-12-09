@@ -7,19 +7,19 @@ body {
 }
 
 h1 {
-  @apply font-extrabold text-2xl pb-[3px] underline my-3;
+  @apply font-extrabold text-2xl pb-[3px] underline my-3 mt-5;
 }
 
 h2 {
-  @apply font-extrabold text-xl my-3;
+  @apply font-extrabold text-xl my-3 mt-5;
 }
 
 h3 {
-  @apply font-extrabold text-lg my-3;
+  @apply font-extrabold text-lg my-3 mt-5;
 }
 
 h4 {
-  @apply font-bold text-lg my-3;
+  @apply font-bold text-lg my-3 mt-5;
 }
 
 pre {
@@ -31,13 +31,19 @@ blockquote {
 }
 
 p {
-  line-height: 2.2;
+  line-height: 2;
+
+  color: #262626;
 }
 
 li {
   line-height: 1.8;
+  font-size: 15px;
 }
 
 li::before {
-  content: "≫";
+  content: "✔︎";
+  margin-left: 10px;
+  margin-right: 4px;
+  color: #686868;
 }
