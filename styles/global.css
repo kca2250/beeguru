@@ -34,6 +34,10 @@ p {
   line-height: 2.2;
 }
 
+li {
+  line-height: 1.8;
+}
+
 li::before {
   content: "≫";
 }
