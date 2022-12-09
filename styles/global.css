@@ -7,19 +7,23 @@ body {
 }
 
 h1 {
-  @apply font-extrabold text-2xl;
+  @apply font-extrabold text-2xl pb-[3px] underline my-3;
 }
 
 h2 {
-  @apply font-extrabold text-xl pt-5;
+  @apply font-extrabold text-xl my-3;
 }
 
 h3 {
-  @apply font-extrabold;
+  @apply font-extrabold text-lg my-3;
+}
+
+h4 {
+  @apply font-bold text-lg my-3;
 }
 
 pre {
-  @apply bg-slate-800 text-white rounded p-3 my-3;
+  @apply bg-slate-800 text-white rounded p-3 my-3 text-sm;
 }
 
 blockquote {
