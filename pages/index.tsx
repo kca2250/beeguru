@@ -17,7 +17,7 @@ const Home: NextPage<{
         {blogs.map((blog) => {
           const publishedAt = formatDate(blog.publishedAt);
           return (
-            <li className="pb-3" key={blog.id}>
+            <li className="pb-3 before:contents" key={blog.id}>
               <div className="flex items-center gap-3">
                 <small className="bg-slate-600 text-white px-1 rounded">
                   {publishedAt}
